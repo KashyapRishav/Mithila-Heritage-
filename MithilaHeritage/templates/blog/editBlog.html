@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %} Edit Blog{% endblock title %}
+{% block body %}
+    <div class="container my-3 border">
+        <form method="POST" enctype='multipart/form-data'>
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="title"  class="form-label">Enter Your Blog Title :
+                </label>
+                <input type="text" value='{{blog_obj.title}}' class="form-control"  id="title" name="title">
+                
+            </div>
+            <div class="mb-3">
+                {{form.media}}
+                {{form.as_p}}
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Upload picture : </label>
+                <input class="form-control py-1"    type="file" name="image" id="image">
+            </div>
+            
+            <button type="submit" class="btn btn-primary my-3">Update your Blog </button>
+        </form>
+    </div>
+{% endblock body %}

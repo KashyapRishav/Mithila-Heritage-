@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %} see blog {% endblock title %}
+{% block blogactive %}active{% endblock blogactive %}
+{% block body %}
+    <div class="container">
+        <table class="table border table-hover">
+            <thead>
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Blog Title</th>
+                <th scope="col">Create At</th>
+                <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for blog in blog_objs %}
+                    <tr>
+                        <th scope="row">{{forloop.counter}}</th>
+                        <td>{{blog.title}}</td>
+                        <td>{{blog.created_at}}</td>
+                        <td>
+                            <a href="{%  url 'blogEdit' blog.slug %}"  class="btn btn-success">Edit</a>
+                            <a href="{%  url 'blogDelete' blog.sno %}"  class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr> 
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock body %}

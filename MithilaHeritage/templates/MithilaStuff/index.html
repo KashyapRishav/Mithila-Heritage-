@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock title %}
+{% block homeactive %}active{% endblock homeactive %}
+{% block body %}
+    <style>
+        body {
+        background-image: url("/static/img/bg.jpg");
+        
+        }
+        .vertical-center {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+    </style>
+        <div class="vertical-center bg-light">
+            <h1 style="color:green">MithilaHeritage</h1>
+            <center><a class="btn btn-lg btn-primary my-2" href="/seeMithilaStuff" role="button">Mithila World >></a></center>
+        </div>
+    
+   
+{% endblock body %}
