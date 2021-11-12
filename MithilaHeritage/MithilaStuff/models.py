@@ -29,7 +29,7 @@ class Material(models.Model):
     image=models.ImageField(upload_to='MithilaStuff/img')
 
     def __str__(self):
-         return self.type
+         return self.name
 
 
 

@@ -34,6 +34,10 @@ def seeMithilaStuff(request):
     context={'allStuff':allStuff}
     return render(request,'MithilaStuff/seeMithilaStuff.html',context)
 
+def mithila_World(request,type):
+    #allStuff=Categories.objects.all()
+    context={'type':type}
+    return render(request,'MithilaStuff/mithila_World.html',context)
     
 def search(request):
     query=request.GET['query']
