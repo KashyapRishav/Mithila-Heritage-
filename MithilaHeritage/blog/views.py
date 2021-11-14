@@ -6,16 +6,13 @@ from blog.models import  BlogComment
 from django.contrib import messages
 from blog.templatetags import extras
 def blogHome(request):
-    # allPosts=Post.objects.all()
     allPosts=BlogModel.objects.all()
     context={'allPosts':allPosts}
     return render(request,'blog/temp.html',context)
 
 
 def blogPost(request, slug): 
-    #post=Post.objects.filter(slug=slug).first()
     post=BlogModel.objects.filter(slug=slug).first()
-    print("here ",post.image)
     comments= BlogComment.objects.filter(post=post, parent=None)
     replies= BlogComment.objects.filter(post=post).exclude(parent=None)
     replyDict={}

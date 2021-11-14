@@ -2,5 +2,41 @@
 {% block title %} Mithila-World {% endblock title %}
 {% block seeMithilaStuf %}active{% endblock seeMithilaStuf %}
 {% block body %}
-    {{type}}
+
+
+<div class="container">
+
+    <h2 style="text-align:center" class="my-3">Festival</h2>
+    <div> 
+        <p style="text-align:justify;" >It is said that festivals add colour to the life and the colourful  mithila has its own way of celebrating these festivals. In the course of learning about various local and cultural heritage of mithila,here we will get to know about the most remarkable and spectacular aspect of the mithila's heritage,which can be seen through its bright, colourful and amazing festivals. </p>
+        <p style="text-align:justify;" class="my-3">Mithila is also called as the land of festivities,because here every single day of the year has some special significance and can be treated as an event . On every second day ,we can find people celebrating these festivities. In fact,it is said that in mithila one can find more festivals then there are days in the year.Hardly a day passes without some festivities,ceremonial observance or pilgrimages occuring . </p>
+        <p style="text-align:justify;" class="my-3">The celebration of festivals begins with the new year itself.Jud-shital is marked as the beginning of new-year,which starts from somewhere around mid- April,as per maithil calendar or panchang(पञ्चाङ्ग). Maithili Panchang follows the dating as per vikram era and according to that ,the new year begins with the month of Baisakh. From that day only,the year long celebration of festivities begins which goes for the whole year around. </p>
+        <p style="text-align:justify;" class="my-3">The very great and interesting part about the festivals in India is that, it is mostly  celebrated in the months which are off season for farmers and one would must be amazed after getting to know about the reasons behind this. During certain months of the year, when farmer are done with their work of ploughing and sowing their fields and are waiting for the harvesting season(that may be kharif or Rabi) ,they are left with nothing to do.Many of the festivals are celebrated during that period ,so that people may keep them engaged in preparation of festivals and do not get inactive. Same thing is followed in mithila too. We can find most of the festivals starts from the mid August and end till Dec(which is the harvesting season of kharif crop,as this region is predominantly a rice growing area).  Devotthan ekadashi is marked as the ending of the season of festivities,but the celebration goes on with the advent of marriage season(lagn/लग्न) which begins from November and end till March.</p>
+        <p style="text-align:justify;" class="my-3" >While learning about various festivals of mithila we will get to know about various rituals ,traditional and cultural aspect of these festival along with their significance in modern context.</p>
+        <p style="text-align:justify;" class="my-3">Some of the major festivals of Mithila are :</p>
+        <p style="text-align:justify;">Madu-shravni(मधुश्रावणी),Janau Purnima or Rishi Tarpan,krishna Asthmi(कृष्णाष्टमी),Jitiya(जितिया), Chaurchan(चौरचन),Dasain , Deepawali and lakshmi puja(kojagara/कोजगरा),Chhath(छठ),Devotthan ekadashi(देवोत्थान एकादशी), Sama-Chakeva(सामा-चकेवा, Shiv vivah panchami, Maghe Sankranti or Tila sankranti(तिला सकरेत),Basant panchami or Saraswati Puja,Maha Shivratri,Holi or fagu-wa(फागुन), Ramnavmi(रामनवमी), Bihula(बिहुला). The list goes on in this way only but the celebrations in Mithila will never have its end.</p>
+    </div>
+</div>
+<div class="container">
+    {% for i in content %}
+        <a class="btn btn-primary my-2 mx-2" data-bs-toggle="collapse" href="#option{{ forloop.counter }}" role="button" aria-expanded="false" aria-controls="option{{ forloop.counter }}">{{i.name}}</a>
+    {% endfor %}
+
+    {% for i in content %}
+        <div class="card mb-3 collapse" id="option{{ forloop.counter }}">
+            <div><h5 style="text-align:center" class="card-title">{{i.name}}</h5></div>
+            <center><img src="/media/{{i.image}}"  style="width:700px;height: 350px;"  alt="..."></center>
+            <div class="card-body">
+                <p class="card-text">{{i.content|safe}}</p>
+            </div>
+        </div>
+    {% endfor %}
+
+    <div>
+    <center><a class="btn btn-secondary my-2 mx-2"  href="/seeMithilaStuff" role="button"  >Back</a></center>
+
+    </div>
+    
+</div> 
+
 {% endblock body %}

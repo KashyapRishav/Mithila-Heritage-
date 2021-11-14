@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from blog.models import BlogModel
 # Create your views here.
-from MithilaStuff.models import Categories, Contact
+from MithilaStuff.models import Categories, Contact, Material
 from django.contrib import messages
 from django.contrib.auth.models import User
 from blog.models import Post
@@ -36,7 +36,11 @@ def seeMithilaStuff(request):
 
 def mithila_World(request,type):
     #allStuff=Categories.objects.all()
-    context={'type':type}
+    #id=Categories.objects.filter(type=type).values('pk')
+    id =Categories.objects.filter(type=type).values('id')[0]['id']
+    content=Material.objects.filter(type_id=id)
+    
+    context={'content':content}
     return render(request,'MithilaStuff/mithila_World.html',context)
     
 def search(request):
