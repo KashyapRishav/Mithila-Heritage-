@@ -73,17 +73,21 @@ def handleSignup(request):
             messages.error(request, " Your user name must be under 6 to 15 characters")
             return redirect('MithilaStuffHome')
 
-        if not username.isalnum():
-            messages.error(request, " User name should only contain letters and numbers")
-            return redirect('MithilaStuffHome')
         if (pass1!= pass2):
-             messages.error(request, " Passwords do not match")
-             return redirect('MithilaStuffHome')
+            messages.error(request, " Passwords do not match")
+            return redirect('MithilaStuffHome')
+        if User.objects.filter(username=username).exists():
+           messages.error(request, "Username Already Taken")
+           return redirect('MithilaStuffHome')
+
+        if User.objects.filter(email=email).exists():
+           messages.error(request, "Email Already Taken")
+           return redirect('MithilaStuffHome')
         myuser = User.objects.create_user(username, email, pass1)
         myuser.first_name= fname
         myuser.last_name= lname
         myuser.save()
-        messages.success(request, " Your iCoder has been successfully created")
+        messages.success(request, " Your account has been successfully created")
         return redirect('MithilaStuffHome')
     else:
         return HttpResponse('404 - Not found')
