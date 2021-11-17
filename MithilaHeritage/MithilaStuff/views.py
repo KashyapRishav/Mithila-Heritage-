@@ -38,9 +38,11 @@ def mithila_World(request,type):
     #allStuff=Categories.objects.all()
     #id=Categories.objects.filter(type=type).values('pk')
     id =Categories.objects.filter(type=type).values('id')[0]['id']
+    desc=Categories.objects.filter(type=type).values('desc')[0]['desc']
+    type=Categories.objects.filter(type=type).values('type')[0]['type']
     content=Material.objects.filter(type_id=id)
     
-    context={'content':content}
+    context={'content':content,'desc':desc,'type':type}
     return render(request,'MithilaStuff/mithila_World.html',context)
     
 def search(request):

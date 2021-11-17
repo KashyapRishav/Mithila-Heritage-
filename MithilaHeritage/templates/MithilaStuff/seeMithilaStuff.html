@@ -10,8 +10,10 @@
             <div class="col-lg-4 border  py-2 px-3 my-2">
                 <div><center><img class="rounded-circle" src="/media/{{i.image}}" alt="Generic placeholder image" width="160" height="160"></center></div>
                 <center><h2>{{i.type}}</h2></center>
-                <div style="height:150px;" ><p class="text-justify" >{{i.desc}}</p></div>
-                <p><center><a class="btn btn-primary" href="/mithila_World/{{i.type}}"  role="button">View details »</a></center</p>
+                {% comment %} <div style="height:150px;" ><p class="text-justify" >{{i.desc|truncatewords_html:30|safe}}</p></div> {% endcomment %}
+                <div style="height:150px;" ><p class="text-justify" >{{i.desc|truncatechars_html:140|safe}}</p></div>
+              
+              <p><center><a class="btn btn-primary" href="/mithila_World/{{i.type}}"  role="button">View details »</a></center</p>
             </div>
         {% endfor %}     
         </div>

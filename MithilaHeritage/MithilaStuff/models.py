@@ -15,7 +15,7 @@ class Contact(models.Model):
 
 class Categories(models.Model):
     type= models.CharField(max_length=255,null=False,blank=False)
-    desc= models.CharField(max_length=555,null=False,blank=False,default="")
+    desc= FroalaField()
     image=models.ImageField(upload_to='MithilaStuff/img' , default='MithilaStuff/img/image.jpeg')
     def __str__(self):
          return self.type

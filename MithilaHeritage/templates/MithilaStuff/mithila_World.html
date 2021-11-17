@@ -6,8 +6,8 @@
 
 <div class="container">
 
-    <h2 style="text-align:center" class="my-3">Festival</h2>
-    <div> 
+    <h2 style="text-align:center" class="my-3">{{type}}</h2>
+    {% comment %} <div> 
         <p style="text-align:justify;" >It is said that festivals add colour to the life and the colourful  mithila has its own way of celebrating these festivals. In the course of learning about various local and cultural heritage of mithila,here we will get to know about the most remarkable and spectacular aspect of the mithila's heritage,which can be seen through its bright, colourful and amazing festivals. </p>
         <p style="text-align:justify;" class="my-3">Mithila is also called as the land of festivities,because here every single day of the year has some special significance and can be treated as an event . On every second day ,we can find people celebrating these festivities. In fact,it is said that in mithila one can find more festivals then there are days in the year.Hardly a day passes without some festivities,ceremonial observance or pilgrimages occuring . </p>
         <p style="text-align:justify;" class="my-3">The celebration of festivals begins with the new year itself.Jud-shital is marked as the beginning of new-year,which starts from somewhere around mid- April,as per maithil calendar or panchang(पञ्चाङ्ग). Maithili Panchang follows the dating as per vikram era and according to that ,the new year begins with the month of Baisakh. From that day only,the year long celebration of festivities begins which goes for the whole year around. </p>
@@ -15,7 +15,8 @@
         <p style="text-align:justify;" class="my-3" >While learning about various festivals of mithila we will get to know about various rituals ,traditional and cultural aspect of these festival along with their significance in modern context.</p>
         <p style="text-align:justify;" class="my-3">Some of the major festivals of Mithila are :</p>
         <p style="text-align:justify;">Madu-shravni(मधुश्रावणी),Janau Purnima or Rishi Tarpan,krishna Asthmi(कृष्णाष्टमी),Jitiya(जितिया), Chaurchan(चौरचन),Dasain , Deepawali and lakshmi puja(kojagara/कोजगरा),Chhath(छठ),Devotthan ekadashi(देवोत्थान एकादशी), Sama-Chakeva(सामा-चकेवा, Shiv vivah panchami, Maghe Sankranti or Tila sankranti(तिला सकरेत),Basant panchami or Saraswati Puja,Maha Shivratri,Holi or fagu-wa(फागुन), Ramnavmi(रामनवमी), Bihula(बिहुला). The list goes on in this way only but the celebrations in Mithila will never have its end.</p>
-    </div>
+    </div> {% endcomment %}
+    <p> {{desc|safe}} </p>
 </div>
 <div class="container">
     {% for i in content %}
