@@ -1,3 +1,4 @@
+from .spamDetector import detectSpam
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .form import *
@@ -32,17 +33,24 @@ def postComment(request):
         postSno =request.POST.get('postSno')
         post= BlogModel.objects.get(sno=postSno)
         parentSo=request.POST.get('parentSno')
-        if parentSo=="":
-            comment=BlogComment(comment= comment, user=user, post=post)
-            comment.save()
-            messages.success(request, "Your comment has been posted successfully")
+        if not comment:
+            messages.error(request, "Comment can not be Empty")
+            return redirect(f"/blog/{post.slug}")
+        elif detectSpam(comment):     
+            messages.error(request, "SPAM - DETECTED! Your Comment Contains malicious content! ")
+            return redirect(f"/blog/{post.slug}")
         else:
-            parent=BlogComment.objects.get(sno=parentSo)
-            comment=BlogComment(comment= comment, user=user, post=post,parent=parent)
-            comment.save()
-            messages.success(request, "Your reply has been posted successfully")
+            if parentSo=="":
+                comment=BlogComment(comment= comment, user=user, post=post)
+                comment.save()
+                messages.success(request, "Your comment has been posted successfully")
+            else:
+                parent=BlogComment.objects.get(sno=parentSo)
+                comment=BlogComment(comment= comment, user=user, post=post,parent=parent)
+                comment.save()
+                messages.success(request, "Your reply has been posted successfully")
         
-    return redirect(f"/blog/{post.slug}")
+            return redirect(f"/blog/{post.slug}")
 
 
 def add_blog(request): 
