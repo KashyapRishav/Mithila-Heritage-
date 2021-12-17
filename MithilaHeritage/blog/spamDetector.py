@@ -1,8 +1,12 @@
 import pickle
 from sklearn.feature_extraction.text import CountVectorizer
 import numpy as np
-model = pickle.load(open(r'C:\Users\kashy\Desktop\Django\MithilaHeritage\MithilaHeritage\blog\spam.pkl','rb'))
-cv=pickle.load(open(r'C:\Users\kashy\Desktop\Django\MithilaHeritage\MithilaHeritage\blog\vectorizer.pkl','rb'))
+# model = pickle.load(open(r'C:\Users\kashy\Desktop\Django\MithilaHeritage\MithilaHeritage\blog\spam.pkl','rb'))
+# cv=pickle.load(open(r'C:\Users\kashy\Desktop\Django\MithilaHeritage\MithilaHeritage\blog\vectorizer.pkl','rb'))
+
+# model = pickle.load(open('spam.pkl','rb'))
+cv=pickle.load(open(r"blog\vectorizer.pkl","rb"))
+model=pickle.load(open(r"blog\spam.pkl","rb"))
 def detectSpam(msg):
 	print(msg)
 	data=[msg]
